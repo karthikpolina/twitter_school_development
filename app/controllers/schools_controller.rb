@@ -10,6 +10,8 @@ class SchoolsController < ApplicationController
   # GET /schools/1
   # GET /schools/1.json
   def show
+     #@schools = School.find(params[:id])
+     render
   end
 
   # GET /schools/new
@@ -73,7 +75,10 @@ class SchoolsController < ApplicationController
     def school_params
     params.require(:school).permit(:school_name,:address_line1, :address_line2, :city, :zip, 
       :state, :country, :fax, :contact, :working_hours, :contact_person, :email_id, 
-      school_user_attributes: [:first_name, :last_name, :email_id, :contact, :login_id, :password]  )
+      school_user_attributes: [:id, :first_name, :last_name, :email_id, :contact, :login_id, :password]  )
 
-    end 
+    end
+
+
+
 end

@@ -3,8 +3,8 @@
 one:
   mom_fname: MyString
   mom_lname: MyString
-  dad_name: MyString
-  dad_name: MyString
+  dad_fname: MyString
+  dad_lname: MyString
   email_id: MyString
   contact: MyString
   login_id: MyString
@@ -13,8 +13,8 @@ one:
 two:
   mom_fname: MyString
   mom_lname: MyString
-  dad_name: MyString
-  dad_name: MyString
+  dad_fname: MyString
+  dad_lname: MyString
   email_id: MyString
   contact: MyString
   login_id: MyString

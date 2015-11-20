@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151119145825) do
+ActiveRecord::Schema.define(version: 20151120174159) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "title",          limit: 255
@@ -77,7 +77,8 @@ ActiveRecord::Schema.define(version: 20151119145825) do
   create_table "parents", force: :cascade do |t|
     t.string   "mom_fname",  limit: 255
     t.string   "mom_lname",  limit: 255
-    t.string   "dad_name",   limit: 255
+    t.string   "dad_fname",  limit: 255
+    t.string   "dad_lname",  limit: 255
     t.string   "email_id",   limit: 255
     t.string   "contact",    limit: 255
     t.string   "login_id",   limit: 255

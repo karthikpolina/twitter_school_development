@@ -10,34 +10,59 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :mom_fname %><br>
+<div class="table">
+<table>
+<tr>
+  <td>
+    <%= label_tag("Mom First Name:") %><br>
     <%= f.text_field :mom_fname %>
-  </div>
-  <div class="field">
-    <%= f.label :mom_lname %><br>
+  </td>
+  <td>
+    <%= label_tag("Mom Last Name:") %><br>
     <%= f.text_field :mom_lname %>
-  </div>
-  <div class="field">
-    <%= f.label :dad_name %><br>
-    <%= f.text_field :dad_name %>
-  </div>
-  <div class="field">
-    <%= f.label :dad_name %><br>
-    <%= f.text_field :dad_name %>
-  </div>
-  <div class="field">
-    <%= f.label :email_id %><br>
+  </td>
+  <td>
+    <%= label_tag("Dad First Name") %><br>
+    <%= f.text_field :dad_fname %>
+  </td>
+  <td>
+    <%= label_tag("Dad Last Name") %><br>
+    <%= f.text_field :dad_lname %>
+  </td>
+</tr>
+
+<tr>
+<td>
+<%= label_tag("Email id") %><br>
     <%= f.text_field :email_id %>
-  </div>
-  <div class="field">
-    <%= f.label :contact %><br>
+</td>
+<td>
+  <%= label_tag("Contact") %><br>
     <%= f.text_field :contact %>
+</td>
+<td>
+<%= label_tag("User Id") %><br>
+    <%= f.text_field :login_id %>
+</td>
+<td>
+<div class="field">
+    <%= label_tag("Password") %><br>
+    <%= f.text_field :password %>
+  </div>
+</td>
+</tr>
+    </table>
+    </div>
+  
+  
+  <div class="field">
+    
   </div>
   <div class="field">
-    <%= f.label :login_id %><br>
-    <%= f.text_field :login_id %>
+  
+  </div>
+  <div class="field">
+    
   </div>
   <div class="field">
     <%= f.label :password %><br>

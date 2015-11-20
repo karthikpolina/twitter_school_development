@@ -1,4 +1,75 @@
 <p id="notice"><%= notice %></p>
 
+<%= form_for(@school) do |f| %>
+
+ <table>
+      <tr>
+        <td> <%= label_tag("School Name:") %>  
+        <%= f.text_field :school_name %> </td> 
+        <td> <%= label_tag("Address line1:") %>
+        <%= f.text_area :address_line1 %></td>
+        <td>
+        <%= label_tag("Address line2:") %>
+        <%= f.text_area :address_line2 %></td>
+      </tr>
+      
+
+
+      <tr>
+        <td>
+        <%= label_tag("City:") %>
+        <%= f.text_field :city %></td>
+        <td><%= label_tag("Zip:") %>
+        <%= f.text_field :zip %></td>
+        <td><%= label_tag("State:") %>
+        <%= f.text_field :state %></td>
+      </tr>
+
+      
+      <tr>
+        <td>
+        <%= label_tag("Country:") %>
+        <%= f.text_field :country %></td>
+        <td><%= label_tag("Fax:") %>
+        <%= f.text_field :fax %></td>
+        <td><%= label_tag("Contact:") %>
+        <%= f.text_field :contact %></td>
+      </tr>
+      
+
+      <tr>
+        <td><%= label_tag("Working hours:") %>
+        <%= f.date_field :working_hours %></td>
+        <td> <%= label_tag("Contact Person:") %>
+        <%= f.text_field :contact_person %></td>
+        <td><%= label_tag("Email Id:") %>
+        <%= f.text_field :email_id %></td>
+      </tr>
+  <%= f.fields_for :school_user do |o| %>
+
+   <tr>
+     <td><%= label_tag("First name:") %>
+      <%= o.text_field :first_name %></td>
+     <td> <%= label_tag("Last name:") %>
+      <%= o.text_field :last_name %></td>
+     <td> <%= label_tag("Email id:") %>
+      <%= o.text_field :email_id %></td>
+    </tr>
+
+    <tr>
+      <td> <%= label_tag("Contact:") %>
+      <%= o.text_field :contact %></td>
+      <td> <%= label_tag("UserName:") %>
+      <%= o.text_field :login_id %></td>
+      <td> <%= label_tag("Password:") %>
+      <%= o.text_field :password %></td>
+    </tr>
+  <% end %>
+      
+</table>
+
+
+<% end %>
+
 <%= link_to 'Edit', edit_school_path(@school) %> |
 <%= link_to 'Back', schools_path %>
