@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @activity.title %>
+</p>
+
+<p>
+  <strong>Message:</strong>
+  <%= @activity.message %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @activity.type %>
+</p>
+
+<p>
+  <strong>Allow comment:</strong>
+  <%= @activity.allow_comment %>
+</p>
+
+<p>
+  <strong>Classroom:</strong>
+  <%= @activity.classroom %>
+</p>
+
+<p>
+  <strong>School users:</strong>
+  <%= @activity.school_users %>
+</p>
+
+<%= link_to 'Edit', edit_activity_path(@activity) %> |
+<%= link_to 'Back', activities_path %>

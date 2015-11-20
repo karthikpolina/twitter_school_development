@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Class name:</strong>
+  <%= @classroom.class_name %>
+</p>
+
+<p>
+  <strong>Class location:</strong>
+  <%= @classroom.class_location %>
+</p>
+
+<p>
+  <strong>Class level:</strong>
+  <%= @classroom.class_level %>
+</p>
+
+<p>
+  <strong>School:</strong>
+  <%= @classroom.school %>
+</p>
+
+<p>
+  <strong>Teacher:</strong>
+  <%= @classroom.teacher %>
+</p>
+
+<%= link_to 'Edit', edit_classroom_path(@classroom) %> |
+<%= link_to 'Back', classrooms_path %>

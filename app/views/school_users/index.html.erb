@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing School Users</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Email</th>
+      <th>Contact</th>
+      <th>Login</th>
+      <th>Password</th>
+      <th>Role</th>
+      <th>School</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @school_users.each do |school_user| %>
+      <tr>
+        <td><%= school_user.first_name %></td>
+        <td><%= school_user.last_name %></td>
+        <td><%= school_user.email_id %></td>
+        <td><%= school_user.contact %></td>
+        <td><%= school_user.login_id %></td>
+        <td><%= school_user.password %></td>
+        <td><%= school_user.role %></td>
+        <td><%= school_user.school %></td>
+        <td><%= link_to 'Show', school_user %></td>
+        <td><%= link_to 'Edit', edit_school_user_path(school_user) %></td>
+        <td><%= link_to 'Destroy', school_user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New School user', new_school_user_path %>

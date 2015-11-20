@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  message: MyText
+  type: false
+  allow_comment: false
+  classroom_id: 
+  school_users_id: 
+
+two:
+  title: MyString
+  message: MyText
+  type: false
+  allow_comment: false
+  classroom_id: 
+  school_users_id: 
