@@ -1,0 +1,20 @@
+
+<!-- <table>
+<tr>
+<td col-span=3><%= button_to 'Add Teacher', { :controller => "school_users",:action => "new" }, :method => :get %></td>
+<td col-span=3><%= button_to 'Teacher list', {:controller => "school_users", :action => "listTeachers"} %></td>
+</tr>
+<tr>
+<td col-span=3><%= button_to 'Post Activity', {:controller => "activities", :action => "new"}, :method => :get %></td>
+</tr>
+
+</table> -->
+
+
+<div id="avtivities" >
+<%= render 'activity' %>
+</div>
+
+<%= will_paginate @activities %>
+
+

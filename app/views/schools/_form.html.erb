@@ -1,84 +1,198 @@
-<%= form_for(@school) do |f| %>
-  <% if @school.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@school.errors.count, "error") %> prohibited this school from being saved:</h2>
+    <%= form_for(@school) do |f| %>
+    <div class="col-lg-12 col-sm-12 col-xs-12 animated fadeInDown">
+      <div class="widget-header bg-blue">
+        <span class="widget-caption">Registration Form</span></div>
+    <div class="widget flat radius-bordered fadeInDown">
+        <div class="widget-body">
+<div id="registration-form">
+                                  <form role="form">
+                                        <div class="form-title">
+                                            School Information
+                                        </div>
+                                        <div class="row">
+                                        <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <span class="input-icon icon-right">
+                                                        <%= f.text_field :school_name, class: 'form-control', placeholder: 'School Name' %>
+                                                        <i class="glyphicon glyphicon-earphone"></i>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <span class="input-icon icon-right">
+                                                        <%= f.text_field :email_id, class: 'form-control', placeholder: 'Email Id for contact' %>
+                                                        <i class="glyphicon glyphicon-earphone"></i>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                          </div>
+                                          <div class="row">
+                                        <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <span class="input-icon icon-right">
+                                                        <%= f.text_field :contact, class: 'form-control', placeholder: 'Contact' %>
+                                                        <i class="glyphicon glyphicon-earphone"></i>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                           <!-- <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <span class="input-icon icon-right">
+                                                        <%= f.text_field :city, class: 'form-control', placeholder: 'City' %>
+                                                        <i class="glyphicon glyphicon-earphone"></i>
+                                                    </span>
+                                                </div>
+                                            </div> -->
+                                          </div>
+                                       <!--    <div class="row">
+                                        <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <span class="input-icon icon-right">
+                                                        <%= f.text_field :address_line2, class: 'form-control', placeholder: 'Address Line 1' %>
+                                                        <i class="glyphicon glyphicon-earphone"></i>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <span class="input-icon icon-right">
+                                                        <%= f.text_field :state, class: 'form-control', placeholder: 'State' %>
+                                                        <i class="glyphicon glyphicon-earphone"></i>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                          </div>
+                                         <div class="row">
+                                        <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <span class="input-icon icon-right">
+                                                        <%= f.text_field :city, class: 'form-control', placeholder: 'City' %>
+                                                        <i class="glyphicon glyphicon-earphone"></i>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <span class="input-icon icon-right">
+                                                        <%= f.text_field :fax, class: 'form-control', placeholder: 'Fax' %>
+                                                        <i class="glyphicon glyphicon-earphone"></i>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                          </div>
+                                         <div class="row">
+                                        <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <span class="input-icon icon-right">
+                                                        <%= f.text_field :country, class: 'form-control', placeholder: 'Country' %>
+                                                        <i class="glyphicon glyphicon-earphone"></i>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <span class="input-icon icon-right">
+                                                        <%= f.date_field :working_hours, class: 'form-control' %>
+                                                        <i class="glyphicon glyphicon-earphone"></i>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                          </div>
+                                         <div class="row">
+                                        <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <span class="input-icon icon-right">
+                                                        <%= f.text_field :state, class: 'form-control', placeholder: 'State' %>
+                                                        <i class="glyphicon glyphicon-earphone"></i>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <span class="input-icon icon-right">
+                                                        <%= f.text_field :email_id, class: 'form-control', placeholder: 'EmailId for contact' %>
+                                                        <i class="glyphicon glyphicon-earphone"></i>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                          </div> -->
+                                        <%= f.fields_for :school_users do |o| %>
+                                        <div class="form-title">
+                                            Log In Information
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <span class="input-icon icon-right">
+                                                          <%= o.text_field :first_name, class: 'form-control', placeholder: 'First Name' %>
+                                                          <i class="glyphicon glyphicon-user"></i>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <span class="input-icon icon-right">
+                                                        <%= o.text_field :last_name, class: 'form-control', placeholder: 'Last Name' %>
+                                                          <i class="glyphicon glyphicon-user"></i>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <span class="input-icon icon-right">
+                                                        <%= o.text_field :email_id, class: 'form-control', placeholder: 'Email Id' %>
+                                                          <i class="glyphicon glyphicon-envelope"></i>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <span class="input-icon icon-right">
+                                                        <%= o.text_field :contact, class: 'form-control', placeholder: 'Contact' %>
+                                                          <i class="glyphicon glyphicon-earphone"></i>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <hr class="wide">
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <span class="input-icon icon-right">
+                                                       <%= o.text_field :login_id, class: 'form-control', placeholder: 'Login Id' %>
+                                                          <i class="glyphicon glyphicon"></i>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <span class="input-icon icon-right">
+                                                        <%= o.password_field :password, class: 'form-control', placeholder: 'Password' %>
+                                                        
+                                                          <i class="glyphicon glyphicon"></i>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <%= o.text_field :role_id, value: 1, :hidden => true %>
+                                        <% end %>
+                                        <div class="form-group">
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input class="colored-blue" type="checkbox">
+                                                    <span class="text">Auto Sign In After Registration</span>
+                                                </label>
+                                            </div>
+                                        </div>
 
-      <ul>
-      <% @school.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-      <table>
-      <tr>
-        <td> <%= label_tag("School Name:") %>  
-        <%= f.text_field :school_name %> </td> 
-        <td> <%= label_tag("Address line1:") %>
-        <%= f.text_area :address_line1 %></td>
-        <td>
-        <%= label_tag("Address line2:") %>
-        <%= f.text_area :address_line2 %></td>
-      </tr>
-      
-
-
-      <tr>
-        <td>
-        <%= label_tag("City:") %>
-        <%= f.text_field :city %></td>
-        <td><%= label_tag("Zip:") %>
-        <%= f.text_field :zip %></td>
-        <td><%= label_tag("State:") %>
-        <%= f.text_field :state %></td>
-      </tr>
-
-      
-      <tr>
-        <td>
-        <%= label_tag("Country:") %>
-        <%= f.text_field :country %></td>
-        <td><%= label_tag("Fax:") %>
-        <%= f.text_field :fax %></td>
-        <td><%= label_tag("Contact:") %>
-        <%= f.text_field :contact %></td>
-      </tr>
-      
-
-      <tr>
-        <td><%= label_tag("Working hours:") %>
-        <%= f.date_field :working_hours %></td>
-        <td> <%= label_tag("Contact Person:") %>
-        <%= f.text_field :contact_person %></td>
-        <td><%= label_tag("Email Id:") %>
-        <%= f.text_field :email_id %></td>
-      </tr>
-  <%= f.fields_for :school_user do |o| %>
-
-   <tr>
-     <td><%= label_tag("First name:") %>
-      <%= o.text_field :first_name %></td>
-     <td> <%= label_tag("Last name:") %>
-      <%= o.text_field :last_name %></td>
-     <td> <%= label_tag("Email id:") %>
-      <%= o.text_field :email_id %></td>
-    </tr>
-
-    <tr>
-      <td> <%= label_tag("Contact:") %>
-      <%= o.text_field :contact %></td>
-      <td> <%= label_tag("UserName:") %>
-      <%= o.text_field :login_id %></td>
-      <td> <%= label_tag("Password:") %>
-      <%= o.text_field :password %></td>
-    </tr>
-  <% end %>
-      
-</table>
-
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+                                        <button type="submit" class="btn btn-blue">Register</button>
+                                    </form>
+                                </div>
+                                     </div>
+        </div>
+       </div> 
+       <% end %>  

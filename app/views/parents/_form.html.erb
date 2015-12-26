@@ -10,65 +10,218 @@
       </ul>
     </div>
   <% end %>
-<div class="table">
-<table>
-<tr>
-  <td>
-    <%= label_tag("Mom First Name:") %><br>
-    <%= f.text_field :mom_fname %>
-  </td>
-  <td>
-    <%= label_tag("Mom Last Name:") %><br>
-    <%= f.text_field :mom_lname %>
-  </td>
-  <td>
-    <%= label_tag("Dad First Name") %><br>
-    <%= f.text_field :dad_fname %>
-  </td>
-  <td>
-    <%= label_tag("Dad Last Name") %><br>
-    <%= f.text_field :dad_lname %>
-  </td>
-</tr>
+<div class="col-lg-12 col-sm-12 col-xs-12 animated fadeInDown">
+        <div class="widget-header bg-blue">
+        <span class="widget-caption">Register Student</span></div>
+<div class="widget flat radius-bordered fadeInDown">
+  <div class="widget-body">
+     <div id="registration-form">
 
-<tr>
-<td>
-<%= label_tag("Email id") %><br>
-    <%= f.text_field :email_id %>
-</td>
-<td>
-  <%= label_tag("Contact") %><br>
-    <%= f.text_field :contact %>
-</td>
-<td>
-<%= label_tag("User Id") %><br>
-    <%= f.text_field :login_id %>
-</td>
-<td>
-<div class="field">
-    <%= label_tag("Password") %><br>
-    <%= f.text_field :password %>
-  </div>
-</td>
-</tr>
-    </table>
+<form role="form">
+      <%= f.fields_for :students do |o| %>
+   
+   <div class="form-title">
+     Student Information
+   </div>
+
+<div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+             <span class="input-icon icon-right">
+                <%= o.text_field :first_name, class: 'form-control', placeholder: 'First Name' %>
+                  <i class="glyphicon "></i>
+              </span>
+          </div>
+        </div>
+        
+        <div class="col-sm-6">
+           <div class="form-group">
+              <span class="input-icon icon-right">
+                 <%= o.text_field :last_name, class: 'form-control', placeholder: 'Last Name' %>
+                    <i class="glyphicon "></i>
+               </span>
+            </div>
+        </div>
     </div>
+   
+  <!-- <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+             <span class="input-icon icon-right">
+                <%= o.date_field :dob, class: 'form-control' , placeholder: 'DOB' %>
+                  <i class="glyphicon "></i>
+              </span>
+          </div>
+        </div>
+        
+        <div class="col-sm-6">
+           <div class="form-group">
+              <span class="input-icon icon-right">
+                 <%= o.text_field :emergency_contact, class: 'form-control', placeholder: 'Emergency Contact' %>
+                    <i class="glyphicon "></i>
+               </span>
+            </div>
+        </div>
+    </div>
+     
+     <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+             <span class="input-icon icon-right">
+                <%= o.text_field :address_line1, class: 'form-control' , placeholder: 'Address Line 1' %>
+                  <i class="glyphicon "></i>
+              </span>
+          </div>
+        </div>
+        
+        <div class="col-sm-6">
+           <div class="form-group">
+              <span class="input-icon icon-right">
+                 <%= o.text_field :address_line2, class: 'form-control', placeholder: 'Address Line 2' %>
+                    <i class="glyphicon "></i>
+               </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+             <span class="input-icon icon-right">
+                <%= o.text_field :city, class: 'form-control' , placeholder: 'City' %>
+                  <i class="glyphicon "></i>
+              </span>
+          </div>
+        </div>
+        
+        <div class="col-sm-6">
+           <div class="form-group">
+              <span class="input-icon icon-right">
+                 <%= o.text_field :zip, class: 'form-control', placeholder: 'Zip' %>
+                    <i class="glyphicon "></i>
+               </span>
+            </div>
+        </div>
+    </div>
+     
+     <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+             <span class="input-icon icon-right">
+                <%= o.text_field :state, class: 'form-control' , placeholder: 'State' %>
+                  <i class="glyphicon "></i>
+              </span>
+          </div>
+        </div>
+        
+        <div class="col-sm-6">
+           <div class="form-group">
+              <span class="input-icon icon-right">
+                 <%= o.text_field :country, class: 'form-control', placeholder: 'Country' %>
+                    <i class="glyphicon "></i>
+               </span>
+            </div>
+        </div>
+    </div> -->
+      
+      <%= hidden_field_tag(:classroomId, @classroomId) %>
+  <% end %>
+         <div class="form-title">
+              Parent Information
+          </div>
+
+    <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+             <span class="input-icon icon-right">
+                <%= f.text_field :dad_fname, class: 'form-control', placeholder: 'Father First Name' %>
+                  <i class="glyphicon "></i>
+              </span>
+          </div>
+        </div>
+        
+        <div class="col-sm-6">
+           <div class="form-group">
+              <span class="input-icon icon-right">
+                 <%= f.text_field :dad_lname, class: 'form-control', placeholder: 'Father Last Name' %>
+                    <i class="glyphicon "></i>
+               </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+             <span class="input-icon icon-right">
+                <%= f.text_field :mom_fname, class: 'form-control', placeholder: 'Mother First Name' %>
+                  <i class="glyphicon "></i>
+              </span>
+          </div>
+        </div>
+        
+        <div class="col-sm-6">
+           <div class="form-group">
+              <span class="input-icon icon-right">
+                 <%= f.text_field :mom_lname, class: 'form-control', placeholder: 'Mother Last Name' %>
+                    <i class="glyphicon "></i>
+               </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+             <span class="input-icon icon-right">
+                <%= f.text_field :email_id, class: 'form-control', placeholder: 'Email Id' %>
+                  <i class="glyphicon glyphicon-envelope"></i>
+              </span>
+          </div>
+        </div>
+        
+     <!--   <div class="col-sm-6">
+           <div class="form-group">
+              <span class="input-icon icon-right">
+                 <%= f.text_field :contact, class: 'form-control', placeholder: 'Contact' %>
+                    <i class="glyphicon glyphicon-earphone"></i>
+               </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+             <span class="input-icon icon-right">
+                <%= f.text_field :login_id, class: 'form-control', placeholder: 'Login Id' %>
+                  <i class="glyphicon "></i>
+              </span>
+          </div>
+        </div>
+        
+        <div class="col-sm-6">
+           <div class="form-group">
+              <span class="input-icon icon-right">
+                 <%= f.text_field :password, class: 'form-control', placeholder: 'Password' %>
+                    <i class="glyphicon "></i>
+               </span>
+            </div>
+        </div>
+    </div> -->
+
   
+
   
-  <div class="field">
-    
-  </div>
-  <div class="field">
-  
-  </div>
-  <div class="field">
-    
-  </div>
-  <div class="field">
-    <%= f.label :password %><br>
-    <%= f.text_field :password %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
+
+
+  <button type="submit" class="btn btn-blue" >Submit</button>
+
+     </form><!-- form tag end -->
+   </div>
+   </div>
+   </div>
+   </div>
 <% end %>
+

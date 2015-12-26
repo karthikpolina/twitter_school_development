@@ -3,7 +3,7 @@ class CreateActivities < ActiveRecord::Migration
     create_table :activities do |t|
       t.string :title
       t.text :message
-      t.boolean :type
+      t.boolean :activity_type
       t.boolean :allow_comment
       t.references :classroom, index: true, foreign_key: true
       t.references :school_user, index: true, foreign_key: true

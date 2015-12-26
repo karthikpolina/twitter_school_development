@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<div class="col-xs-12 col-md-12">
+  
+  <div class="widget">
+
+  <div class="widget-header bordered-bottom bordered-blue">
+                <span class="widget-caption">List Of Classes</span>
+                <div class="widget-buttons">
+                    <a href="#" data-toggle="maximize">
+                        <i class="fa fa-expand"></i>
+                    </a>
+                    <a href="#" data-toggle="collapse">
+                        <i class="fa fa-minus"></i>
+                    </a>
+                    <a href="#" data-toggle="dispose">
+                        <i class="fa fa-times"></i>
+                    </a>
+                </div>
+            </div>
+  <div class="widget-body">
+    <table class="table table-striped table-hover table-bordered" id="editabledatatable">
+      <thead>
+        <tr role="row">
+          <th>Class name</th>
+          <th>Class location</th>
+          <th>Class level</th>
+          
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @classrooms.each do |classroom| %>
+      <tr>
+        <td><%= classroom.class_name %></td>
+        <td><%= classroom.class_location %></td>
+        <td><%= classroom.class_level %></td>
+        
+        
+         <td>
+          
+            <%= link_to 'Destroy', classroom, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-info btn-xs edit' %></td>
+            
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div><!-- End div widget-body-->
+   
+</div>
+</div>
+
+

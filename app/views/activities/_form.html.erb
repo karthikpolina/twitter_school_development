@@ -1,4 +1,11 @@
-<%= form_for(@activity) do |f| %>
+<div class="col-lg-6 col-sm-6 col-xs-8">
+                <div class="widget">
+                    <div class="widget-header bordered-bottom bordered-blue">
+                        <span class="widget-caption">Post Activity </span>
+                    </div>
+                    <div class="widget-body ">
+                        <div>
+<%= form_for(@activity, remote: true) do  |f| %> <!-- authenticity_token: true -->
   <% if @activity.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@activity.errors.count, "error") %> prohibited this activity from being saved:</h2>
@@ -11,31 +18,61 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :message %><br>
-    <%= f.text_area :message %>
-  </div>
-  <div class="field">
-    <%= f.label :type %><br>
-    <%= f.check_box :type %>
-  </div>
-  <div class="field">
-    <%= f.label :allow_comment %><br>
+        <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                     <span class="input-icon icon-right">
+                    <%= f.text_field :title, class: 'form-control', placeholder: 'Title' %>
+                     
+                     </span>
+                  </div>
+                </div>
+        </div> 
+
+        <div class="row">
+                        
+                <div class="col-sm-6">
+                  <div class="form-group">
+                     <span class="input-icon icon-right">
+                     <%= f.text_area :message, class: 'form-control', placeholder: 'Message', :style=>"margin-left: 0px; margin-right: -229px; width: 440px;"   %>
+                     
+                     </span>
+                  </div>
+                </div>
+        </div>
+
+  <div class="row">
+                        
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    
+                   
+                     <%= f.file_field :image %>
+                     
+                  </div>
+                </div>
+        </div> 
+ 
+ 
+  
+    
+  
+    <%= f.check_box :activity_type %>
+  
     <%= f.check_box :allow_comment %>
-  </div>
-  <div class="field">
-    <%= f.label :classroom_id %><br>
-    <%= f.text_field :classroom_id %>
-  </div>
-  <div class="field">
-    <%= f.label :school_users_id %><br>
-    <%= f.text_field :school_users_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+ 
+  
+    <% if session[:role_id] == 1 %>
+    <%= f.text_field :classroom_id, {:value => 0, :hidden => true} %>
+    <% else %>
+    <%= f.text_field :classroom_id, {:value => @classroom_id, :hidden => true} %>
+    <% end %>
+
+    <%= f.text_field :school_user_id, {:value => session[:user_id], :hidden => true}%>
+ 
+  <button type="submit" class="btn btn-blue">Post</button>
 <% end %>
+  </div>  
+</div>
+  </div>
+    </div>

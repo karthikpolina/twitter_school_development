@@ -1,10 +1,28 @@
 class StudentsController < ApplicationController
-  before_action :set_student, only: [:show, :edit, :update, :destroy]
+  before_action :set_student, only: [:show, :edit, :update]
 
   # GET /students
   # GET /students.json
   def index
-    @students = Student.all
+
+    @registrations = ClassRegistration.includes(:student).where("classroom_id = " + params[:classroomId])
+    
+    @classroomId = params[:classroomId]
+    @students = []
+      @registrations.each do |registration|
+        @students.push(registration.student)
+    end
+  end
+
+  def studentSchoolActivities
+
+    @studentDetails = Student.includes(:parent).where("parent_id = " + session[:parent_id])
+    
+    @students = []
+      @registrations.each do |registration|
+        @students.push(registration.student)
+      end
+    
   end
 
   # GET /students/1
@@ -15,10 +33,14 @@ class StudentsController < ApplicationController
   # GET /students/new
   def new
     @student = Student.new
+    @student.class_registration.build
+  
   end
 
   # GET /students/1/edit
   def edit
+
+   
   end
 
   # POST /students
@@ -54,11 +76,16 @@ class StudentsController < ApplicationController
   # DELETE /students/1
   # DELETE /students/1.json
   def destroy
-    @student.destroy
+
+        stdObj = Student.new
+        stdObj.id = params[:studentId]
+        stdObj.destroy
+
     respond_to do |format|
-      format.html { redirect_to students_url, notice: 'Student was successfully destroyed.' }
+      format.html { redirect_to controller: 'students', action: 'index', classroomId: params[:classroomId], notice: 'Student was successfully destroyed.' }
       format.json { head :no_content }
     end
+
   end
 
   private

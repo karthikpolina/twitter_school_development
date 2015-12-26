@@ -1,29 +1,143 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Class name:</strong>
-  <%= @classroom.class_name %>
-</p>
+<div class="col-lg-6 col-sm-6 col-xs-6">
+                <div class="widget">
+                    <div class="widget-header  bordered-bottom bordered-blue">
+                        <span class="widget-caption" id="notice"> <%= notice %> </span>
+                    </div>
+                    <div class="widget-body bordered-bottom bordered-gold">
+                        <div>
 
-<p>
-  <strong>Class location:</strong>
-  <%= @classroom.class_location %>
-</p>
+        <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                     <span class="input-icon icon-right">
+                    <p>
+                      <strong>Class name:</strong>
+                      
+                    </p>
+                     </span>
+                  </div>
+                </div>
+                                            
+                <div class="col-sm-6">
+                  <div class="form-group">
+                     <span class="input-icon icon-right">
+                    
+                      <%= @classroom.class_name %>
+                     
+                     </span>
+                  </div>
+                </div>
+        </div>
 
-<p>
-  <strong>Class level:</strong>
-  <%= @classroom.class_level %>
-</p>
+        <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                     <span class="input-icon icon-right">
+                    <p>
+                      <strong>Class location:</strong>
+                      
+                    </p>
+                     </span>
+                  </div>
+                </div>
+                                            
+                <div class="col-sm-6">
+                  <div class="form-group">
+                     <span class="input-icon icon-right">
+                    <%= @classroom.class_location %>
+                      
+                     </span>
+                  </div>
+                </div>
+        </div>
 
-<p>
-  <strong>School:</strong>
-  <%= @classroom.school %>
-</p>
+        <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                     <span class="input-icon icon-right">
+                    <p>
+                      <strong>Class level:</strong>
+                     
+                    </p>
+                     </span>
+                  </div>
+                </div>
+                                            
+                <div class="col-sm-6">
+                  <div class="form-group">
+                     <span class="input-icon icon-right">
+                    <%= @classroom.class_level %>
+                      
+                     </span>
+                  </div>
+                </div>
+        </div>
 
-<p>
-  <strong>Teacher:</strong>
-  <%= @classroom.teacher %>
-</p>
 
-<%= link_to 'Edit', edit_classroom_path(@classroom) %> |
-<%= link_to 'Back', classrooms_path %>
+        <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                     <span class="input-icon icon-right">
+                    <p>
+                      <strong>School:</strong>
+                      
+                    </p>
+
+                     </span>
+                  </div>
+                </div>
+                                            
+                <div class="col-sm-6">
+                  <div class="form-group">
+                     <span class="input-icon icon-right">
+                    <%= @classroom.school.school_name %>
+                     
+                     </span>
+                  </div>
+                </div>
+        </div>
+
+
+        <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                     <span class="input-icon icon-right">
+                    <p>
+                      <strong>Teacher:</strong>
+
+                     
+                    </p>
+
+                     </span>
+                  </div>
+                </div>
+                                            
+                <div class="col-sm-6">
+                  <div class="form-group">
+                     <span class="input-icon icon-right">
+                    
+                       <%= @classroom.school_user.first_name + " " + @classroom.school_user.last_name %>
+                     </span>
+                  </div>
+                </div>
+        </div>
+
+
+</div>
+</div>
+
+
+           <div class="widget-header ">
+                       
+              <span class="widget-caption">
+                <%= link_to 'Edit', edit_classroom_path(@classroom) %> |
+                <%= link_to 'Back To Teachers List', {controller: "school_users", action: "index"}, :method => :get %>
+
+              </span>
+                  
+            </div>
+
+</div>
+</div>
+

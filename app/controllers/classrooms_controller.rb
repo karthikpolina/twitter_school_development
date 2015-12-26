@@ -4,31 +4,41 @@ class ClassroomsController < ApplicationController
   # GET /classrooms
   # GET /classrooms.json
   def index
-    @classrooms = Classroom.all
+    @classrooms = Classroom.joins(:school_user).page(params[:page]).per_page(6)
+
+  end
+
+  def indexForTeachers
+    @classrooms = Classroom.joins(:school_user).where("school_user_id = " + params[:user_id])
+    
+
   end
 
   # GET /classrooms/1
   # GET /classrooms/1.json
   def show
+
   end
 
   # GET /classrooms/new
   def new
+    @user_id = params[:user_id]
     @classroom = Classroom.new
   end
 
   # GET /classrooms/1/edit
   def edit
+   # @user_id = params[:user_id]
   end
 
   # POST /classrooms
   # POST /classrooms.json
   def create
     @classroom = Classroom.new(classroom_params)
-
+    #@user_id = params[:school_user_id]
     respond_to do |format|
       if @classroom.save
-        format.html { redirect_to @classroom, notice: 'Classroom was successfully created.' }
+        format.html { redirect_to @classroom, notice: 'Classroom was successfully created!' }
         format.json { render :show, status: :created, location: @classroom }
       else
         format.html { render :new }
@@ -69,6 +79,6 @@ class ClassroomsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def classroom_params
-      params.require(:classroom).permit(:class_name, :class_location, :class_level, :school_id, :teacher_id)
+      params.require(:classroom).permit(:class_name, :class_location, :class_level, :school_id, :school_user_id)
     end
 end

@@ -1,4 +1,7 @@
-<%= form_for(@school_user) do |f| %>
+
+                    <div class="widget-body">
+                        <div>
+                            <%= form_for(@school_user) do |f| %>
   <% if @school_user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@school_user.errors.count, "error") %> prohibited this school_user from being saved:</h2>
@@ -10,40 +13,85 @@
       </ul>
     </div>
   <% end %>
+        <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                     <span class="input-icon icon-right">
+                    <%= f.text_field :first_name, class: 'form-control', placeholder: 'First Name' %>
+                     
+                     </span>
+                  </div>
+                </div>
+                                            
+                <div class="col-sm-6">
+                  <div class="form-group">
+                     <span class="input-icon icon-right">
+                     <%= f.text_field :login_id, class: 'form-control', placeholder: 'Login Id' %>
+                     
+                     </span>
+                  </div>
+                </div>
+        </div>
+ 
+    <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                     <span class="input-icon icon-right">
+                    <%= f.text_field :last_name, class: 'form-control', placeholder: 'Last Name' %>
+                     
+                     </span>
+                  </div>
+                </div>
+                                            
+                <div class="col-sm-6">
+                  <div class="form-group">
+                     <span class="input-icon icon-right">
+                     <%= f.password_field :password, class: 'form-control', placeholder: 'Password' %>
+                     
+                     </span>
+                  </div>
+                </div>
+        </div>
 
-  <div class="field">
-    <%= f.label :first_name %><br>
-    <%= f.text_field :first_name %>
-  </div>
-  <div class="field">
-    <%= f.label :last_name %><br>
-    <%= f.text_field :last_name %>
-  </div>
-  <div class="field">
-    <%= f.label :email_id %><br>
-    <%= f.text_field :email_id %>
-  </div>
-  <div class="field">
-    <%= f.label :contact %><br>
-    <%= f.text_field :contact %>
-  </div>
-  <div class="field">
-    <%= f.label :login_id %><br>
-    <%= f.text_field :login_id %>
-  </div>
-  <div class="field">
-    <%= f.label :password %><br>
-    <%= f.text_field :password %>
-  </div>
-  <div class="field">
-    <%= f.label :role_id %><br>
-    <%= f.text_field :role_id %>
-  </div>
-  <div class="field">
-    <%= f.label :school_id %><br>
-    <%= f.text_field :school_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+        <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                     <span class="input-icon icon-right">
+                    <%= f.text_field :email_id, class: 'form-control', placeholder: 'Email Id' %>
+                     <i class="glyphicon glyphicon-envelope"></i>
+                     </span>
+                  </div>
+                </div>
+                                            
+                
+        </div>
+
+        <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                     <span class="input-icon icon-right">
+                    <%= f.text_field :contact, class: 'form-control', placeholder: 'Contact' %>
+                     <i class="glyphicon glyphicon-earphone"></i>
+                     </span>
+                  </div>
+                </div>
+                                            
+                
+        </div>
+
+    
+  
+    
+    <%= f.text_field :role_id, :value => 2, :hidden => true %>
+  
+    
+    <%= f.text_field :school_id, :value => 2, :hidden => true %>
+ 
+  
+    <button type="submit" class="btn btn-blue">Submit</button>
+  
 <% end %>
+
+                        </div>
+                    </div>
+            

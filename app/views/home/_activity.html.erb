@@ -1,0 +1,12 @@
+<% for activity in @activities %>  
+
+
+<div class="activity">
+
+<h2> <%= activity.title %> </h2>
+	
+	<div class="details">
+   <%= activity.message %> | <%= activity.created_at %>
+	</div>
+</div>
+<% end %>

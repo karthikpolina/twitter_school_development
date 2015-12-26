@@ -1,35 +1,59 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Classrooms</h1>
+<div class="col-xs-12 col-md-12">
+  
+  <div class="widget">
 
-<table>
-  <thead>
-    <tr>
-      <th>Class name</th>
-      <th>Class location</th>
-      <th>Class level</th>
-      <th>School</th>
-      <th>Teacher</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <div class="widget-header bordered-bottom bordered-blue">
+                <span class="widget-caption">List Of Classes</span>
+                <div class="widget-buttons">
+                    <a href="#" data-toggle="maximize">
+                        <i class="fa fa-expand"></i>
+                    </a>
+                    <a href="#" data-toggle="collapse">
+                        <i class="fa fa-minus"></i>
+                    </a>
+                    <a href="#" data-toggle="dispose">
+                        <i class="fa fa-times"></i>
+                    </a>
+                </div>
+            </div>
+  <div class="widget-body">
+    <table class="table table-striped table-hover table-bordered" id="editabledatatable">
+      <thead>
+        <tr role="row">
+          <th>Class name</th>
+          <th>Class location</th>
+          <th>Class level</th>
+          <th>Teacher</th>
+          
+          
+          <th colspan="3"></th>
+        </tr>
+      </thead>
 
-  <tbody>
-    <% @classrooms.each do |classroom| %>
+      <tbody>
+        <% @classrooms.each do |classroom| %>
       <tr>
         <td><%= classroom.class_name %></td>
         <td><%= classroom.class_location %></td>
         <td><%= classroom.class_level %></td>
-        <td><%= classroom.school %></td>
-        <td><%= classroom.teacher %></td>
-        <td><%= link_to 'Show', classroom %></td>
-        <td><%= link_to 'Edit', edit_classroom_path(classroom) %></td>
-        <td><%= link_to 'Destroy', classroom, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        
+        <td><%= classroom.school_user.first_name %> <%= classroom.school_user.last_name %></td>
+         <td>
+          <%= link_to 'Add Student', {controller: "Parents", action: "new", classroomId: classroom.id}, class: 'btn btn-info btn-xs edit' %>
+          <%= link_to 'View Student', {controller: "Students", action: "index", classroomId: classroom.id}, class: 'btn btn-info btn-xs edit' %>
+            <%# <td><%= link_to 'Show', school_user ></td> %>
+            <%= link_to 'Edit', edit_classroom_path(classroom), class: 'btn btn-info btn-xs edit' %>
+            <%= link_to 'Destroy', classroom, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-info btn-xs edit' %></td>
+            
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div><!-- End div widget-body-->
+   <%= will_paginate @classrooms %> 
+</div>
+</div>
 
-<br>
 
-<%= link_to 'New Classroom', new_classroom_path %>

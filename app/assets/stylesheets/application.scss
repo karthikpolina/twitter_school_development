@@ -1,0 +1,70 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+
+ */
+
+
+
+#imageActivity{
+    width:150px;
+}
+
+#teacherClass{
+    left:-1px;
+}
+.panel-default{
+
+	    margin: 10% auto;
+    max-width: 300px;
+    position: relative;
+    background: #f7f7f7;
+    
+}
+
+.signIn{
+margin: 10px 100px;
+font-size: 18px;
+font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+font-weight: normal;
+}
+.navbar-default{
+	background: #1BC3EA;
+}
+
+
+
+#linkForgotPassword{
+	margin: 0px 55px;
+    color: #50ABF1;
+}
+#linkForgotPassword:hover{
+    background: #f7f7f7;
+}
+.lblNoAccount{
+	margin: 0px 20px;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+font-weight: normal;
+}
+#linkSignUp{
+	
+    color: #50ABF1;
+}
+#linkSignUp:hover{
+    background: #f7f7f7;
+}
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+

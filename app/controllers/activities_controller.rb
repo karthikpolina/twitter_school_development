@@ -1,5 +1,6 @@
 class ActivitiesController < ApplicationController
   before_action :set_activity, only: [:show, :edit, :update, :destroy]
+  before_action :check_session, only: [:new, :show, :edit, :update, :destroy]  
 
   # GET /activities
   # GET /activities.json
@@ -14,7 +15,19 @@ class ActivitiesController < ApplicationController
 
   # GET /activities/new
   def new
-    @activity = Activity.new
+    
+    if session[:role_id] == 1
+
+      @activity = Activity.new #For creating new activity
+    
+      @activities = Activity.order("created_at DESC").page(params[:page]).per_page(5)
+      else 
+      #@class_details = Classroom.where("school_user_id = ? AND school_id =?", session[:user_id], session[:school_id])
+      @activity = Activity.new #For creating new activity
+      @classroom_id = params[:class_id]
+      @activities = Activity.where("classroom_id = ? AND school_user_id = ?", params[:class_id], session[:user_id]).order("created_at DESC").page(params[:page]).per_page(5)
+    end
+
   end
 
   # GET /activities/1/edit
@@ -26,15 +39,16 @@ class ActivitiesController < ApplicationController
   def create
     @activity = Activity.new(activity_params)
 
-    respond_to do |format|
-      if @activity.save
-        format.html { redirect_to @activity, notice: 'Activity was successfully created.' }
-        format.json { render :show, status: :created, location: @activity }
-      else
-        format.html { render :new }
-        format.json { render json: @activity.errors, status: :unprocessable_entity }
+    if @activity.save
+      @activities = Array.wrap(@activity) #converting to array
+
+
+      respond_to do |format|
+
+          format.js 
       end
     end
+    
   end
 
   # PATCH/PUT /activities/1
@@ -64,11 +78,21 @@ class ActivitiesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_activity
+
       @activity = Activity.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def activity_params
-      params.require(:activity).permit(:title, :message, :type, :allow_comment, :classroom_id, :school_users_id)
+      params.require(:activity).permit(:title, :message, :activity_type, :allow_comment, :classroom_id, :school_user_id, :image)
     end
+
+    def check_session
+      if session[:user_id]
+        
+        else
+          redirect_to "/home/login"
+      end
+    end
+
 end

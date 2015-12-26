@@ -1,4 +1,4 @@
 class Classroom < ActiveRecord::Base
   belongs_to :school
-  belongs_to :teacher
+  belongs_to :school_user
 end

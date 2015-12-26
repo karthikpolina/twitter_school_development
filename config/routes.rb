@@ -1,10 +1,39 @@
 Rails.application.routes.draw do
+
+  get 'api/school_users/teacherHomeView', to: 'api/school_users#teacherHomeView'
+
+  namespace :api do
+    resources :school_users
+  end
+
+  namespace :api do
+    resources :activities
+  end
+  
+  get 'api/home/attempt_login', to: 'api/home#attempt_login'
+
+
+
+  get 'school_users/teacherHomeView', to: 'school_users#teacherHomeView'
+  
+  get 'home/logout', to: 'home#logout'
+
+  
+
+  #devise_for :users
   resources :parents
   resources :activities
   resources :classrooms
   resources :students
   resources :school_users
   resources :schools
+
+  
+
+
+  match ':controller(/:action(/:id))', :via => :post
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,0 +1,8 @@
+
+$('#avtivities').append('<%= j render 'activity' %>');
+<% if @activities.next_page %>
+   $('.pagination').replaceWith('<%= j will_paginate(@activities) %>')
+<% else %>
+   $('.pagination').remove();
+<% end %>
+<% sleep 1 %>

@@ -1,0 +1,64 @@
+<% @activities.each do |activity| %>
+<div class="col-lg-10 col-sm-10 col-xs-10">
+	
+	<div class="widget-header bordered-left bordered-red ">
+	     <span class="widget-caption"> <strong><%= activity.title %> </strong></span>
+	</div>
+
+
+	<div class="widget">
+	  <div class="widget-body bordered-bottom bordered-gold ">
+		
+		<div>
+		
+			<div class="row">
+		        
+		        <div class="col-md-6">
+		           <div class="form-group">
+		              <span class="input-icon icon-right">
+		                 <%= image_tag activity.image.url, {:id => 'imageActivity'} %>  
+		                     
+		               </span>
+		            </div>
+		        </div>
+
+		        <div class="col-md-6">
+		           <div class="form-group">
+		              <span class="input-icon icon-right">
+		                 <%= activity.message %>  
+		                     
+		               </span>
+		            </div>
+		        </div>
+		   
+		             
+		                  
+		    </div>
+
+		    <div class="row">
+		        <div class="col-xs-2">
+		           <div class="form-group">
+		              <span class="input-icon icon-right">
+		                 
+		                     
+		               </span>
+		            </div>
+		        </div>
+
+		        
+		   <div class="col-xs-10">
+		             <span class="pull-right text-muted">
+		                  Posted <%= time_ago_in_words(activity.created_at) %> ago
+		                     
+		             </span>
+		           </div>  
+		                  
+		    </div>
+
+		</div>
+	  </div>
+	</div>
+
+</div>
+
+<% end %>

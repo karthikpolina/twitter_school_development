@@ -1,0 +1,29 @@
+
+<div class="col-lg-6 col-sm-6 col-xs-8">
+    <div class="widget-header bordered-bottom bordered-blue">
+        <span class="widget-caption">Your Classes </span>
+    </div>
+
+    <div class="widget-body ">
+        <% @class_details.each do |classdetails| %>
+          <div>
+             <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <span class="input-icon icon-right">
+                        
+                        <a href='/activities/new?class_id=<%=classdetails.id%> '>
+                        <i class="menu-icon glyphicon glyphicon-eye-open"></i>
+                        <span class="menu-text"> <%= classdetails.class_name%> </span></a>
+                     
+                        
+                        
+                    </span>
+                  </div>
+                </div>
+             </div>
+          </div>
+                
+        <% end %>
+    </div> 
+</div>
