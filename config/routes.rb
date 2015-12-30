@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   
   get 'api/home/attempt_login', to: 'api/home#attempt_login'
 
-
+  post 'check_login', to: 'home#check_login'
 
   get 'school_users/teacherHomeView', to: 'school_users#teacherHomeView'
   
@@ -21,15 +21,17 @@ Rails.application.routes.draw do
   
 
   #devise_for :users
-  resources :parents
+  resources :parents do
+    collection do
+      get :login
+      post :attempt_login
+    end
+  end
   resources :activities
   resources :classrooms
   resources :students
   resources :school_users
   resources :schools
-
-  
-
 
   match ':controller(/:action(/:id))', :via => :post
 

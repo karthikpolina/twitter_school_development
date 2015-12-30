@@ -20,7 +20,7 @@
                 <div class="or-line"></div>
                 <div class="or">OR</div>
             </div>
-            <%= form_tag(:action => 'attempt_login') do %>
+            <%= form_tag(attempt_login_parents_path) do %>
             <div class="loginbox-textbox">
                 <%= text_field_tag(:username, nil, class: 'form-control',placeholder: 'Username' ) %>
                 
@@ -30,7 +30,7 @@
             </div>
             <div class="loginbox-forgot">
                 <a href="">Forgot Password?</a> </br>
-                <%= link_to 'Click here to login in as school user.' , {:controller => "home", :action => "login"} %> 
+                <%= link_to 'Click here to login in as school user.' , root_path %> 
             </div>
             <div class="loginbox-submit">
                 <%= submit_tag("Log In", {:class => "btn btn-primary btn-block"}) %>
@@ -38,7 +38,7 @@
             </div>
               <% end %> 
             <div class="loginbox-signup">
-                <%= link_to 'Sign Up >>', {:controller => "schools", :action => "new"} %> 
+                <%= link_to 'Sign Up >>', new_school_path %> 
                
             </div>
         </div>

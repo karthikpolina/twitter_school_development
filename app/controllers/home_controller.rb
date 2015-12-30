@@ -1,22 +1,21 @@
 class HomeController < ApplicationController
 
 def home
-@activities = Activity.order("created_at DESC").page(params[:page]).per_page(5)
-
+  @activities = Activity.order("created_at DESC").page(params[:page]).per_page(5)
 end
 
 def login
-	render 
+	render 'login'
 end
 
 def logout
-session[:school_id] = nil
-session[:parent_id] = nil
-session[:user_id] = nil
-redirect_to(:action => 'login')
+  session[:school_id] = nil
+  session[:parent_id] = nil
+  session[:user_id] = nil
+  redirect_to root_path
 end
 
-  def attempt_login
+  def check_login
 
     #check whether user has provided username and password
     if params[:username].present? && params[:password].present?
@@ -36,16 +35,18 @@ end
       session[:username] = authorized_user.first_name + " " +authorized_user.last_name
 
         if session[:role_id] == 2
-          redirect_to(:controller => 'school_users' ,:action => 'teacherHomeView')
+          redirect_to school_users_teacherHomeView_path
           
           else
           flash[:notice] = "You are now logged in."
-          redirect_to(:controller => 'activities' ,:action => 'new')
+          #redirect_to(:controller => 'activities' ,:action => 'new')
+          redirect_to new_activity_path
         end
     #else condition for authorized_user
     else 
       flash[:notice] = "Invalid username/password combination."
-      redirect_to(:action => 'login')
+      #redirect_to(:controller => 'home' ,:action => 'login')
+      redirect_to root_path
     end
 
   end
